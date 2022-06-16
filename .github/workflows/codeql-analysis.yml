@@ -37,6 +37,7 @@ jobs:
 #       uses: github/codeql-action/autobuild@v2
     
     - run: |
+        cd ./Unix
         ./configure
         make
         make install
