@@ -32,10 +32,14 @@ jobs:
         languages: ${{ matrix.language }}
         queries: security-extended
 
-    - name: Build Code
+    - name: Install Dependencies
       if: matrix.language == 'cpp'
       run: |
         sudo apt-get install -y rpm libpam0g-dev libkrb5-dev wget openssl
+
+    - name: Build Code
+      if: matrix.language == 'cpp'
+      run: |
         cd ./Unix
         ./configure
         make
